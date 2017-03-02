@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ACH::ACHFile do
+  let(:today) { Date.today }
 
   subject :ach_file do
     # Create ACH file
@@ -23,9 +24,8 @@ describe ACH::ACHFile do
     bh.company_identification = '123456789'
     bh.standard_entry_class_code = 'PPD'
     bh.company_entry_description = 'DESCRIPTION'
-    bh.company_descriptive_date = Date.today
-    bh.effective_entry_date =
-      ACH::NextFederalReserveEffectiveDate.new(Date.today).result
+    bh.company_descriptive_date = today
+    bh.effective_entry_date = today
     bh.originating_dfi_identification = '00000000'
 
     entry_details.times { add_detail(batch) }
