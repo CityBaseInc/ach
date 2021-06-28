@@ -94,5 +94,5 @@ module ACH::Records
     field :addenda_record_indicator, Integer, lambda { |f| sprintf('%01d', f)}, 0
     field :origin_routing_number, String, lambda { |f| sprintf('%08d', f.to_i) }
     field :trace_number, Integer, lambda { |f| sprintf('%07d', f)}
-  end 
+  end
 end

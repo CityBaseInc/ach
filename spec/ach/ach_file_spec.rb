@@ -56,6 +56,7 @@ describe ACH::ACHFile do
       entry.account_number = '22222222222'
       entry.amount = batch.entries.inject(0){|sum, entry| sum + entry.amount}
       entry.account_description = 'OFFSET'
+      entry.discretionary_data = 'S'
       entry.origin_routing_number = '33333333'
       entry.trace_number = 1
     end
@@ -77,7 +78,7 @@ describe ACH::ACHFile do
           '62211111111122222222222      0000000101EMPLOYEE NAME  EMPLOYEE NAME           0000000000000001',
           '62211111111122222222222      0000000101EMPLOYEE NAME  EMPLOYEE NAME           0000000000000001',
           '62211111111122222222222      0000000101EMPLOYEE NAME  EMPLOYEE NAME           0000000000000001',
-          '62711111111122222222222      0000000404               OFFSET                  0333333330000001',
+          '62711111111122222222222      0000000404               OFFSET                S 0333333330000001',
           '820000000500555555550000000004040000000004041123456789                         777777770000001',
           '9000001000001000000050055555555000000000404000000000404                                       ',
           '9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'
